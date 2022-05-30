@@ -1,0 +1,35 @@
+import random
+def gamestart(x):
+    random_num = random.randint(1,x)
+    guess= 0
+    count = 0    
+    while guess != random_num:
+        guess=int(input(f"Enter the number 1 to {x}: "))
+        if x >= guess:
+            if guess < random_num:
+                print(f"your guess is low!{guess}")
+            elif guess > random_num:
+                print(f"your guess is higher!{guess}")
+            elif guess == random_num:
+                print(f"you got it : {guess}")
+            count += 1
+        else:
+            print("Not Valid limit, please try again!")
+    result_display(guess,count)
+    db=input("would you like to play the game again!yes or no:  ")
+    if db =='yes':
+        start()
+    else:
+        print("Thank you for playing")
+           
+def result_display(guess,count):
+    print(f"congratulations !! your are  guess is correct: {guess} with attempt : {count}")
+    
+if __name__=="__main__":
+    
+    print("let's start guessing game play:")
+    def start():
+        x= int(input("Enter random limit:"))
+        gamestart(x)
+        
+    start()
